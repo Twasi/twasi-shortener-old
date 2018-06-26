@@ -5,15 +5,25 @@ const shortid = require("shortid");
 
 const baseUrl = "https://twasi.net"
 const errorUrl = `${baseUrl}/404`;
-const shortenUrl = "http://localhost:7000/s";
+const shortenUrl = `${baseUrl}/s`;
+const customShortenUrl = `${baseUrl}/c`;
 const panelUrl = "https://panel-beta.twasi.net?ref=";
 
 module.exports = app => {
   app.get("/", async (req, res) => {
-    res.redirect("https://twasi.net");
+    return res.redirect(baseUrl);
+  });
+  app.get("/twitter", async (req, res) => {
+    return res.redirect("https://twitter.com/TwasiNET");
+  });
+  app.get("/blog", async (req, res) => {
+    return res.redirect("https://medium.com/Twasi");
   });
   app.get("/ref/:name", async (req, res) => {
     res.redirect(`${panelUrl}${req.params.name}`);
+  })
+  app.get("/sd", async (req, res) => {
+    res.redirect("https://diespendendose.net");
   })
   app.get("/:path", async (req, res) => {
     return res.redirect(`${baseUrl}/${req.params.path}`);
