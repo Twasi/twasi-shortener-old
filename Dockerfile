@@ -12,7 +12,7 @@ COPY . .
 RUN yarn
 
 # Run
-CMD yarn start
+CMD yarn run start-prod
 
 # Tell Docker about the port we'll run on.
 EXPOSE 7000

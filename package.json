@@ -14,6 +14,7 @@
     "valid-url": "^1.0.9"
   },
   "scripts": {
-    "start": "nodemon index.js "
+    "start": "nodemon index.js ",
+    "start-prod": "node index.js"
   }
 }
