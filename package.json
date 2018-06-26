@@ -1,0 +1,19 @@
+{
+  "name": "twasi-shortener",
+  "version": "1.0.0",
+  "description": "Twa.si URL Shortener",
+  "main": "index.js",
+  "repository": "https://github.com/Twasi/twasi-shortener.git",
+  "author": "Lars Bärtschi <lars.baertschi@bluewin.ch>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.1.6",
+    "shortid": "^2.2.8",
+    "valid-url": "^1.0.9"
+  },
+  "scripts": {
+    "start": "nodemon index.js "
+  }
+}
