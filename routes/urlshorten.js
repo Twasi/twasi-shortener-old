@@ -25,9 +25,6 @@ module.exports = app => {
   app.get("/sd", async (req, res) => {
     return res.redirect("https://diespendendose.net");
   })
-  app.get("/:path", async (req, res) => {
-    return res.redirect(`${baseUrl}/${req.params.path}`);
-  });
   app.get("/s/:code", async (req, res) => {
     const urlCode = req.params.code;
     const item = await UrlShorten.findOne({ urlCode: urlCode });
@@ -76,5 +73,8 @@ module.exports = app => {
           "Invalid Original Url"
         );
     }
+  });
+  app.get("/:path", async (req, res) => {
+    return res.redirect(`${baseUrl}/${req.params.path}`);
   });
 };
