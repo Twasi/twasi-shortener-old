@@ -5,8 +5,9 @@ const shortid = require("shortid");
 
 const baseUrl = "https://twasi.net"
 const errorUrl = `${baseUrl}/404`;
-const shortenUrl = `${baseUrl}/s`;
-const customShortenUrl = `${baseUrl}/c`;
+const shortenUrl = `https://twa.si`;
+const defaultShortenUrl = `${shortenUrl}/s`;
+const customShortenUrl = `${shortenUrl}/c`;
 const panelUrl = "https://panel-beta.twasi.net?ref=";
 
 module.exports = app => {
@@ -25,7 +26,7 @@ module.exports = app => {
   app.get("/sd", async (req, res) => {
     return res.redirect("https://diespendendose.net");
   })
-  app.get("/s/:code", async (req, res) => {
+  app.get("/c/:code", async (req, res) => {
     const urlCode = req.params.code;
     const item = await UrlShorten.findOne({ urlCode: urlCode });
     if (item) {
@@ -53,7 +54,7 @@ module.exports = app => {
         if (item) {
           res.status(200).json(item);
         } else {
-          shortUrl = shortenUrl + "/" + urlCode;
+          shortUrl = customShortenUrl + "/" + urlCode;
           const item = new UrlShorten({
             originalUrl,
             shortUrl,
