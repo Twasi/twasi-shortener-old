@@ -20,10 +20,10 @@ module.exports = app => {
     return res.redirect("https://medium.com/Twasi");
   });
   app.get("/ref/:name", async (req, res) => {
-    res.redirect(`${panelUrl}${req.params.name}`);
+    return res.redirect(`${panelUrl}${req.params.name}`);
   })
   app.get("/sd", async (req, res) => {
-    res.redirect("https://diespendendose.net");
+    return res.redirect("https://diespendendose.net");
   })
   app.get("/:path", async (req, res) => {
     return res.redirect(`${baseUrl}/${req.params.path}`);
