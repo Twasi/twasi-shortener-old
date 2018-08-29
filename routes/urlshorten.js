@@ -26,6 +26,9 @@ module.exports = app => {
   app.get("/sd", async (req, res) => {
     return res.redirect("https://diespendendose.net");
   })
+  app.get("/comtreffen", async (req, res) => {
+    return res.redirect("https://docs.google.com/forms/d/e/1FAIpQLScJwDfZb-48prNZl8v4pwmkkalIUX6glsfSxi6zPGzUj1f8ng/viewform?usp=sf_link");
+  })
   app.get("/c/:code", async (req, res) => {
     const urlCode = req.params.code;
     const item = await UrlShorten.findOne({ urlCode: urlCode });
